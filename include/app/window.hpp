@@ -32,7 +32,9 @@ class Dash : public QWidget {
 
     struct Body {
         QVBoxLayout *layout;
+        QVBoxLayout *status_bar;
         QStackedLayout *frame;
+        QVBoxLayout *control_bar;
 
         Body();
     };
@@ -42,6 +44,7 @@ class Dash : public QWidget {
     Body body;
 
     void set_page(Page *page);
+    QWidget *status_bar() const;
     QWidget *control_bar() const;
     QWidget *power_control() const;
 };
@@ -54,8 +57,8 @@ class Window : public QMainWindow {
 
    protected:
     void showEvent(QShowEvent *event);
-    void keyPressEvent(QKeyEvent *event);
-    void keyReleaseEvent(QKeyEvent *event);
+    // void keyPressEvent(QKeyEvent *event);
+    // void keyReleaseEvent(QKeyEvent *event);
 
    private:
     Arbiter arbiter;

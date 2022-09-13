@@ -22,6 +22,7 @@ class Arbiter : public QObject {
     void toggle_mode();
     void set_color(const QColor &color);
     void set_scale(double scale);
+    void set_status_bar(bool enabled);
     void set_control_bar(bool enabled);
     void set_curr_quick_view(QuickView *quick_view);
     void set_curr_quick_view(int id);
@@ -47,6 +48,7 @@ class Arbiter : public QObject {
     Session::System &system() { return this->session_.system_; }
     Session::Forge &forge() { return this->session_.forge_; }
     Session::Core &core() { return this->session_.core_; }
+    Session::AndroidAuto &android_auto() { return this->session_.android_auto_; }
     void update() { this->session_.update(); }
 
    private:
@@ -57,6 +59,7 @@ class Arbiter : public QObject {
     void mode_changed(Session::Theme::Mode mode);
     void color_changed(QColor color);
     void scale_changed(float scale);
+    void status_bar_changed(bool enabled);
     void control_bar_changed(bool enabled);
     void curr_quick_view_changed(QuickView *quick_view);
     void curr_page_changed(Page *page);
@@ -66,6 +69,5 @@ class Arbiter : public QObject {
     void volume_changed(uint8_t volume);
     void cursor_changed(bool enabled);
     void action_changed(Action *action, QString key);
-    void openauto_button_press(aasdk::proto::enums::ButtonCode::Enum buttonCode, openauto::projection::WheelDirection wheelDirection);
     void openauto_full_screen(bool fullscreen);
 };

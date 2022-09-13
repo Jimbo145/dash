@@ -23,7 +23,9 @@
 #include "app/pages/page.hpp"
 #include "app/quick_views/quick_view.hpp"
 #include "app/services/bluetooth.hpp"
+#include "app/services/clock.hpp"
 #include "app/services/server.hpp"
+#include "AAHandler.hpp"
 
 class Arbiter;
 
@@ -73,6 +75,7 @@ class Session {
         };
 
         double scale;
+        bool status_bar;
         ControlBar control_bar;
         OpenAutoPage *openauto_page;
         Page *curr_page;
@@ -123,6 +126,7 @@ class Session {
             QList<PluginInfo> plugin_infos_;
         };
 
+        Clock clock;
         Server server;
         Bluetooth bluetooth;
         Brightness brightness;
@@ -147,6 +151,12 @@ class Session {
 
        private:
         Arbiter &arbiter_;
+    };
+
+    struct AndroidAuto {
+        AAHandler *handler;
+
+        AndroidAuto(Arbiter &arbiter);
     };
 
     struct Core {
@@ -179,5 +189,6 @@ class Session {
     Layout layout_;
     System system_;
     Forge forge_;
+    AndroidAuto android_auto_;
     Core core_;
 };
