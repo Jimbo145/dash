@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkou@v3
+        uses: actions/checkout@v3
 
       - name: Set up Make and build dependencies
         run: |
