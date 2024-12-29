@@ -3,6 +3,7 @@
 #include <QLabel>
 #include <QLayoutItem>
 #include <QScrollArea>
+#include <QWebEngineView>
 
 #include <aasdk_proto/ButtonCodeEnum.pb.h>
 #include <aasdk_proto/VideoFPSEnum.pb.h>
@@ -35,6 +36,7 @@ void SettingsPage::init()
     this->addTab(new LayoutSettingsTab(this->arbiter), "Layout");
     this->addTab(new BluetoothSettingsTab(this->arbiter, this), "Bluetooth");
     this->addTab(new ActionsSettingsTab(this->arbiter), "Actions");
+    this->addTab(new SaabSettingsTab(this->arbiter), "Saab");
     this->addTab(new AboutSettingsTab(this->arbiter), "About");
 }
 
@@ -656,6 +658,30 @@ QWidget *ActionsSettingsTab::action_input(Action *action)
     layout->addWidget(symbol, 0, Qt::AlignRight);
 
     return widget;
+}
+
+SaabSettingsTab::SaabSettingsTab(Arbiter &arbiter)
+    : QWidget()
+    , arbiter(arbiter)
+{
+    auto layout = new QVBoxLayout(this);
+    layout->setContentsMargins(6, 0, 6, 0);
+
+    this->label1 = new QLabel("Saab");
+    this->label1->setAlignment(Qt::AlignCenter);
+    layout->addStretch();
+    layout->addWidget(this->label1);
+
+    QWebEngineView *view = new QWebEngineView();
+    view->setUrl(QUrl("http://localhost:8080"));
+    view->show();
+    layout->addWidget(view);
+    layout->addStretch();
+}
+
+void SaabSettingsTab::resizeEvent(QResizeEvent *event)
+{
+    QWidget::resizeEvent(event);
 }
 
 AboutSettingsTab::AboutSettingsTab(Arbiter &arbiter)

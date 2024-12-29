@@ -1,12 +1,15 @@
 #include <QApplication>
 #include <QStringList>
 #include <QWindow>
+#include <QtWebEngine>
 
 #include "app/window.hpp"
 #include "app/action.hpp"
 
 int main(int argc, char *argv[])
 {
+    
+    QtWebEngine::initialize();
     QApplication dash(argc, argv);
 
     dash.setOrganizationName("openDsh");

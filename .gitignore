@@ -5,6 +5,12 @@
 /lib
 /nbproject
 /cmake-build-debug
+/aasdk
+/bluez-5.63
+/h264bitstream
+/openauto
+/qt-gstreamer/*
+/logs/*
 
 # Compiled source #
 ###################
@@ -62,9 +68,11 @@ Makefile
 *_autogen/
 gitversion.h
 openauto.ini
+qt-gstreamer/*
 
 # Plugins #
 ###########
 plugins/vehicle/*
 !plugins/vehicle/test
 !plugins/vehicle/README.md
+logs/.dash_output.log.swp

@@ -95,6 +95,22 @@ class ActionsSettingsTab : public QWidget {
     Config *config;
 };
 
+class SaabSettingsTab : public QWidget {
+    Q_OBJECT
+
+   public:
+    SaabSettingsTab(Arbiter &arbiter);
+
+   protected:
+    void resizeEvent(QResizeEvent *event);
+
+   private:
+    QLabel *logo;
+    QLabel *label1;
+    Arbiter &arbiter;
+    Config *config;
+};
+
 class AboutSettingsTab : public QWidget {
     Q_OBJECT
 

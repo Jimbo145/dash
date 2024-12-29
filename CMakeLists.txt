@@ -34,7 +34,7 @@ add_definitions(-DBOOST_ALL_DYN_LINK)
 
 find_package(Boost REQUIRED COMPONENTS system log OPTIONAL_COMPONENTS unit_test_framework)
 find_package(libusb-1.0 REQUIRED)
-find_package(Qt5 COMPONENTS Multimedia MultimediaWidgets Bluetooth Qml Quick QuickWidgets SerialBus SerialPort WebSockets DBus Xml Svg REQUIRED)
+find_package(Qt5 COMPONENTS Multimedia MultimediaWidgets WebEngine WebEngineWidgets Bluetooth Qml Quick QuickWidgets SerialBus SerialPort WebSockets DBus Xml Svg REQUIRED)
 find_package(KF5BluezQt REQUIRED)
 find_package(Protobuf REQUIRED)
 find_package(OpenSSL REQUIRED)
@@ -42,6 +42,7 @@ find_package(rtaudio REQUIRED)
 find_package(taglib REQUIRED)
 find_package(aasdk REQUIRED)
 find_package(openauto REQUIRED)
+
 
 if(RPI_BUILD AND NOT GST_BUILD)
     add_definitions(-DUSE_OMX -DOMX_SKIP64BIT)
@@ -94,6 +95,8 @@ target_include_directories(dash SYSTEM PRIVATE
     ${Qt5Svg_INCLUDE_DIRS}
     ${Qt5Xml_INCLUDE_DIRS}
     ${Qt5WebSockets_INCLUDE_DIRS}
+    ${Qt5WebEngineWidgets_INCLUDE_DIRS}
+    ${Qt5WebEngine_INCLUDE_DIRS}
     ${Qt5DBus_INCLUDE_DIRS}
     ${Qt5SerialBus_INCLUDE_DIRS}
     ${Qt5SerialPort_INCLUDE_DIRS}
@@ -126,6 +129,8 @@ target_link_libraries(dash
     ${Qt5Xml_LIBRARIES}
     ${Qt5DBus_LIBRARIES}
     ${Qt5WebSockets_LIBRARIES}
+    ${Qt5WebEngineWidgets_LIBRARIES}
+    ${Qt5WebEngine_LIBRARIES}
     ${Qt5SerialBus_LIBRARIES}
     ${Qt5SerialPort_LIBRARIES}
     ${Qt5Multimedia_LIBRARIES}

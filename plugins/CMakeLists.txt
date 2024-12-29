@@ -26,6 +26,8 @@ FOREACH(plugin_type ${plugin_types})
             ${Qt5Widgets_INCLUDE_DIRS}
             ${Qt5Bluetooth_INCLUDE_DIRS}
             ${Qt5DBus_INCLUDE_DIRS}
+            ${Qt5WebEngineWidgets_INCLUDE_DIRS}
+            ${Qt5WebEngine_INCLUDE_DIRS}
             ${Boost_INCLUDE_DIRS}
             ${LIBUSB_1_INCLUDE_DIRS}
             ${PROTOBUF_INCLUDE_DIR}
@@ -54,6 +56,8 @@ FOREACH(plugin_type ${plugin_types})
             ${Qt5Multimedia_LIBRARIES}
             ${Qt5MultimediaWidgets_LIBRARIES}
             ${Qt5Bluetooth_LIBRARIES}
+            ${Qt5WebEngineWidgets_LIBRARIES}
+            ${Qt5WebEngine_LIBRARIES}
             KF5::BluezQt
             ${LIBUSB_1_LIBRARIES}
             ${PROTOBUF_LIBRARIES}
